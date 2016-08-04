@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8"/>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #000000;
+				overflow: hidden;
+			}
+			#canvasArea {
+				margin-left: auto;
+				margin-right: auto;
+				overflow: hidden;
+			}
+		</style>
+        <title>Socket.io</title>
+    </head>
+    <body>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="code.js"></script>
+
+		<div id="canvasArea"></div>
+    
+		<script>
+
+			(function() {
+				//Initialization
+				gdjs.registerObjects();
+				gdjs.registerBehaviors();
+				gdjs.registerGlobalCallbacks();
+
+				var game = new gdjs.RuntimeGame(gdjs.projectData, {});
+
+				//Create a renderer
+				var canvasArea = document.getElementById("canvasArea");
+				game.getRenderer().createStandardCanvas(canvasArea);
+
+				//Bind keyboards/mouse/touch events
+				game.getRenderer().bindStandardEvents(game.getInputManager(), window, document);
+
+				//Load all assets and start the game
+				game.loadAllAssets(function() {
+					game.startGameLoop();
+				});
+			})();
+
+		</script>
+    </body>
+</html>
