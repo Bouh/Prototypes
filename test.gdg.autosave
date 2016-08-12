@@ -113,14 +113,14 @@
                         <variable name="type" value="create_profile" />
                     </initialVariables>
                 </instance>
-                <instance angle="0.000000" customSize="false" height="0.000000" layer="" locked="false" name="txt_var" width="0.000000" x="282.000000" y="440.500000" zOrder="5">
+                <instance angle="0.000000" customSize="false" height="0.000000" layer="" locked="false" name="txt_var" width="0.000000" x="286.000000" y="440.500000" zOrder="5">
                     <numberProperties />
                     <stringProperties />
                     <initialVariables>
                         <variable name="text" value="OK" />
                     </initialVariables>
                 </instance>
-                <instance angle="0.000000" customSize="false" height="0.000000" layer="" locked="false" name="debug" width="0.000000" x="188.000000" y="303.000031" zOrder="6">
+                <instance angle="0.000000" customSize="false" height="0.000000" layer="" locked="false" name="debug" width="0.000000" x="180.000000" y="303.000031" zOrder="6">
                     <numberProperties />
                     <stringProperties />
                     <initialVariables />
@@ -130,7 +130,47 @@
                     <stringProperties />
                     <initialVariables />
                 </instance>
-                <instance angle="0.000000" customSize="false" height="0.000000" layer="" locked="false" name="output_server" width="0.000000" x="222.000000" y="214.500000" zOrder="8">
+                <instance angle="0.000000" customSize="false" height="0.000000" layer="" locked="false" name="output_server" width="0.000000" x="220.000000" y="214.500000" zOrder="8">
+                    <numberProperties />
+                    <stringProperties />
+                    <initialVariables />
+                </instance>
+                <instance angle="0.000000" customSize="true" height="50.000000" layer="confirmation" locked="false" name="input" width="116.000000" x="243.000000" y="255.500000" zOrder="1">
+                    <numberProperties />
+                    <stringProperties />
+                    <initialVariables>
+                        <variable name="type" value="oui" />
+                    </initialVariables>
+                </instance>
+                <instance angle="0.000000" customSize="false" height="0.000000" layer="confirmation" locked="false" name="txt_var" width="0.000000" x="279.000000" y="269.500000" zOrder="2">
+                    <numberProperties />
+                    <stringProperties />
+                    <initialVariables>
+                        <variable name="text" value="oui" />
+                    </initialVariables>
+                </instance>
+                <instance angle="0.000000" customSize="true" height="50.000000" layer="confirmation" locked="false" name="input" width="114.000000" x="383.000000" y="255.500000" zOrder="3">
+                    <numberProperties />
+                    <stringProperties />
+                    <initialVariables>
+                        <variable name="type" value="non" />
+                    </initialVariables>
+                </instance>
+                <instance angle="0.000000" customSize="false" height="0.000000" layer="confirmation" locked="false" name="txt_var" width="0.000000" x="421.000000" y="269.500000" zOrder="4">
+                    <numberProperties />
+                    <stringProperties />
+                    <initialVariables>
+                        <variable name="text" value="non" />
+                    </initialVariables>
+                </instance>
+                <instance angle="0.000000" customSize="false" height="0.000000" layer="confirmation" locked="false" name="txt_var" width="0.000000" x="277.000000" y="201.500000" zOrder="5">
+                    <numberProperties />
+                    <stringProperties />
+                    <initialVariables>
+                        <variable name="text" value="Validez vous ce pseudo ?" />
+                    </initialVariables>
+                </instance>
+                <instance angle="0.000000" customSize="false" height="0.000000" layer="confirmation" locked="false" name="txt_pseudo" width="0.000000" x="277.000000" y="159.499969" zOrder="6">
                     <numberProperties />
                     <stringProperties />
                     <initialVariables />
@@ -286,6 +326,30 @@
                     <comment2>Import</comment2>
                 </event>
                 <event disabled="false" folded="false">
+                    <type>BuiltinCommonInstructions::Standard</type>
+                    <conditions>
+                        <condition>
+                            <type inverted="false" value="DepartScene" />
+                            <parameters>
+                                <parameter></parameter>
+                            </parameters>
+                            <subConditions />
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action>
+                            <type inverted="false" value="TextObject::String" />
+                            <parameters>
+                                <parameter>output_server</parameter>
+                                <parameter>=</parameter>
+                                <parameter>&quot;Choisissez un pseudo&quot;</parameter>
+                            </parameters>
+                            <subActions />
+                        </action>
+                    </actions>
+                    <events />
+                </event>
+                <event disabled="false" folded="false">
                     <type>BuiltinCommonInstructions::Link</type>
                     <include end="-1" includeAll="true" start="-1" />
                     <target>Evenements externes</target>
@@ -320,74 +384,6 @@
                             <subActions />
                         </action>
                     </actions>
-                    <events />
-                </event>
-                <event disabled="false" folded="false">
-                    <type>BuiltinCommonInstructions::Comment</type>
-                    <color b="0" g="128" r="255" textB="0" textG="0" textR="0" />
-                    <comment>Test envoie donnée to serveur.js</comment>
-                    <comment2></comment2>
-                </event>
-                <event disabled="false" folded="false">
-                    <type>BuiltinCommonInstructions::Standard</type>
-                    <conditions>
-                        <condition>
-                            <type inverted="false" value="SourisSurObjet" />
-                            <parameters>
-                                <parameter>input</parameter>
-                                <parameter></parameter>
-                                <parameter></parameter>
-                                <parameter></parameter>
-                            </parameters>
-                            <subConditions />
-                        </condition>
-                        <condition>
-                            <type inverted="false" value="SourisBouton" />
-                            <parameters>
-                                <parameter></parameter>
-                                <parameter>Left</parameter>
-                            </parameters>
-                            <subConditions />
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <events>
-                        <event disabled="false" folded="false">
-                            <type>BuiltinCommonInstructions::Standard</type>
-                            <conditions>
-                                <condition>
-                                    <type inverted="false" value="VarObjetTxt" />
-                                    <parameters>
-                                        <parameter>input</parameter>
-                                        <parameter>type</parameter>
-                                        <parameter>=</parameter>
-                                        <parameter>&quot;input_pseudo&quot;</parameter>
-                                    </parameters>
-                                    <subConditions />
-                                </condition>
-                            </conditions>
-                            <actions />
-                            <events>
-                                <event disabled="false" folded="false">
-                                    <type>BuiltinCommonInstructions::Standard</type>
-                                    <conditions>
-                                        <condition>
-                                            <type inverted="false" value="BuiltinCommonInstructions::Once" />
-                                            <parameters />
-                                            <subConditions />
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                    <events />
-                                </event>
-                            </events>
-                        </event>
-                    </events>
-                </event>
-                <event disabled="false" folded="false">
-                    <type>BuiltinCommonInstructions::Standard</type>
-                    <conditions />
-                    <actions />
                     <events />
                 </event>
                 <event disabled="false" folded="false">
@@ -525,11 +521,161 @@
                                             </actions>
                                             <events />
                                         </event>
+                                        <event disabled="false" folded="false">
+                                            <type>BuiltinCommonInstructions::Standard</type>
+                                            <conditions>
+                                                <condition>
+                                                    <type inverted="false" value="VarObjetTxt" />
+                                                    <parameters>
+                                                        <parameter>input</parameter>
+                                                        <parameter>type</parameter>
+                                                        <parameter>=</parameter>
+                                                        <parameter>&quot;oui&quot;</parameter>
+                                                    </parameters>
+                                                    <subConditions />
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action>
+                                                    <type inverted="false" value="ModVarGlobalTxt" />
+                                                    <parameters>
+                                                        <parameter>selection</parameter>
+                                                        <parameter>=</parameter>
+                                                        <parameter>&quot;oui&quot;</parameter>
+                                                    </parameters>
+                                                    <subActions />
+                                                </action>
+                                            </actions>
+                                            <events />
+                                        </event>
+                                        <event disabled="false" folded="false">
+                                            <type>BuiltinCommonInstructions::Standard</type>
+                                            <conditions>
+                                                <condition>
+                                                    <type inverted="false" value="VarObjetTxt" />
+                                                    <parameters>
+                                                        <parameter>input</parameter>
+                                                        <parameter>type</parameter>
+                                                        <parameter>=</parameter>
+                                                        <parameter>&quot;non&quot;</parameter>
+                                                    </parameters>
+                                                    <subConditions />
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action>
+                                                    <type inverted="false" value="ModVarGlobalTxt" />
+                                                    <parameters>
+                                                        <parameter>selection</parameter>
+                                                        <parameter>=</parameter>
+                                                        <parameter>&quot;non&quot;</parameter>
+                                                    </parameters>
+                                                    <subActions />
+                                                </action>
+                                            </actions>
+                                            <events />
+                                        </event>
                                     </events>
                                 </event>
                             </events>
                         </event>
                     </events>
+                </event>
+                <event disabled="false" folded="false">
+                    <type>BuiltinCommonInstructions::Comment</type>
+                    <color b="109" g="230" r="255" textB="0" textG="0" textR="0" />
+                    <comment>validation du pseudo</comment>
+                    <comment2></comment2>
+                </event>
+                <event disabled="false" folded="false">
+                    <type>BuiltinCommonInstructions::Standard</type>
+                    <conditions>
+                        <condition>
+                            <type inverted="false" value="VarGlobalTxt" />
+                            <parameters>
+                                <parameter>selection</parameter>
+                                <parameter>=</parameter>
+                                <parameter>&quot;oui&quot;</parameter>
+                            </parameters>
+                            <subConditions />
+                        </condition>
+                        <condition>
+                            <type inverted="false" value="BuiltinCommonInstructions::Once" />
+                            <parameters />
+                            <subConditions />
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <events>
+                        <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::JsCode</type>
+                            <inlineCode>joueurs_actuel = variables.get(&quot;joueur_actuel&quot;);&#x0D;&#x0A;socket.emit(&apos;validation_joueur&apos;, joueurs_actuel.getAsString());&#x0D;&#x0A;console.log(&quot;Joueurs actuel : &quot; + joueurs_actuel.getAsString());</inlineCode>
+                            <parameterObjects></parameterObjects>
+                        </event>
+                        <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::Standard</type>
+                            <conditions />
+                            <actions>
+                                <action>
+                                    <type inverted="false" value="Scene" />
+                                    <parameters>
+                                        <parameter></parameter>
+                                        <parameter>&quot;jeux&quot;</parameter>
+                                        <parameter>true</parameter>
+                                    </parameters>
+                                    <subActions />
+                                </action>
+                                <action>
+                                    <type inverted="false" value="ModVarGlobalTxt" />
+                                    <parameters>
+                                        <parameter>selection</parameter>
+                                        <parameter>=</parameter>
+                                        <parameter>&quot;none&quot;</parameter>
+                                    </parameters>
+                                    <subActions />
+                                </action>
+                            </actions>
+                            <events />
+                        </event>
+                    </events>
+                </event>
+                <event disabled="false" folded="false">
+                    <type>BuiltinCommonInstructions::Standard</type>
+                    <conditions>
+                        <condition>
+                            <type inverted="false" value="VarGlobalTxt" />
+                            <parameters>
+                                <parameter>selection</parameter>
+                                <parameter>=</parameter>
+                                <parameter>&quot;non&quot;</parameter>
+                            </parameters>
+                            <subConditions />
+                        </condition>
+                        <condition>
+                            <type inverted="false" value="BuiltinCommonInstructions::Once" />
+                            <parameters />
+                            <subConditions />
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action>
+                            <type inverted="false" value="ShowLayer" />
+                            <parameters>
+                                <parameter></parameter>
+                                <parameter>&quot;&quot;</parameter>
+                            </parameters>
+                            <subActions />
+                        </action>
+                        <action>
+                            <type inverted="false" value="HideLayer" />
+                            <parameters>
+                                <parameter></parameter>
+                                <parameter>&quot;confirmation&quot;</parameter>
+                            </parameters>
+                            <subActions />
+                        </action>
+                    </actions>
+                    <events />
                 </event>
                 <event disabled="false" folded="false">
                     <type>BuiltinCommonInstructions::Standard</type>
@@ -596,8 +742,67 @@
                     </actions>
                     <events>
                         <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::Standard</type>
+                            <conditions>
+                                <condition>
+                                    <type inverted="false" value="VarGlobalTxt" />
+                                    <parameters>
+                                        <parameter>joueur_actuel</parameter>
+                                        <parameter>!=</parameter>
+                                        <parameter>&quot;&quot;</parameter>
+                                    </parameters>
+                                    <subConditions />
+                                </condition>
+                                <condition>
+                                    <type inverted="false" value="VarGlobalTxt" />
+                                    <parameters>
+                                        <parameter>message_server</parameter>
+                                        <parameter>=</parameter>
+                                        <parameter>&quot;Le pseudo est libre&quot;</parameter>
+                                    </parameters>
+                                    <subConditions />
+                                </condition>
+                                <condition>
+                                    <type inverted="false" value="LayerVisible" />
+                                    <parameters>
+                                        <parameter></parameter>
+                                        <parameter>&quot;&quot;</parameter>
+                                    </parameters>
+                                    <subConditions />
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action>
+                                    <type inverted="false" value="ModVarGlobalTxt" />
+                                    <parameters>
+                                        <parameter>message_server</parameter>
+                                        <parameter>=</parameter>
+                                        <parameter>&quot;none&quot;</parameter>
+                                    </parameters>
+                                    <subActions />
+                                </action>
+                                <action>
+                                    <type inverted="false" value="HideLayer" />
+                                    <parameters>
+                                        <parameter></parameter>
+                                        <parameter>&quot;&quot;</parameter>
+                                    </parameters>
+                                    <subActions />
+                                </action>
+                                <action>
+                                    <type inverted="false" value="ShowLayer" />
+                                    <parameters>
+                                        <parameter></parameter>
+                                        <parameter>&quot;confirmation&quot;</parameter>
+                                    </parameters>
+                                    <subActions />
+                                </action>
+                            </actions>
+                            <events />
+                        </event>
+                        <event disabled="false" folded="false">
                             <type>BuiltinCommonInstructions::JsCode</type>
-                            <inlineCode>joueurs_actuel = variables.get(&quot;joueur_actuel&quot;);&#x0D;&#x0A;socket.emit(&apos;creation_joueur&apos;, joueurs_actuel.getAsString());</inlineCode>
+                            <inlineCode>joueurs_actuel = variables.get(&quot;joueur_actuel&quot;);&#x0D;&#x0A;socket.emit(&apos;creation_joueur&apos;, joueurs_actuel.getAsString());&#x0D;&#x0A;console.log(&quot;Joueurs actuel : &quot; + joueurs_actuel.getAsString());</inlineCode>
                             <parameterObjects></parameterObjects>
                         </event>
                     </events>
@@ -613,15 +818,6 @@
                     <conditions />
                     <actions>
                         <action>
-                            <type inverted="false" value="ModVarGlobalTxt" />
-                            <parameters>
-                                <parameter>joueurs.joueur_3.pseudo</parameter>
-                                <parameter>=</parameter>
-                                <parameter>&quot;Bouh&quot;</parameter>
-                            </parameters>
-                            <subActions />
-                        </action>
-                        <action>
                             <type inverted="false" value="TextObject::String" />
                             <parameters>
                                 <parameter>debug</parameter>
@@ -632,6 +828,12 @@
                         </action>
                     </actions>
                     <events />
+                </event>
+                <event disabled="false" folded="false">
+                    <type>BuiltinCommonInstructions::Comment</type>
+                    <color b="0" g="128" r="255" textB="0" textG="0" textR="0" />
+                    <comment>TEST</comment>
+                    <comment2></comment2>
                 </event>
                 <event disabled="false" folded="false">
                     <type>BuiltinCommonInstructions::Standard</type>
@@ -645,18 +847,36 @@
                     <actions />
                     <events>
                         <event disabled="false" folded="false">
-                            <type>BuiltinCommonInstructions::JsCode</type>
-                            <inlineCode>var joueurs = variables.get(&quot;joueurs&quot;);&#x0D;&#x0A;var child = joueurs.getAllChildren();&#x0D;&#x0A;&#x0D;&#x0A;var count = 0;&#x0D;&#x0A;for (var k in child) {&#x0D;&#x0A; if (child.hasOwnProperty(k)) {&#x0D;&#x0A; ++count;&#x0D;&#x0A; }&#x0D;&#x0A;}&#x0D;&#x0A;console.log(&quot;Nombre d&apos;enfants de Joueurs : &quot; + count );&#x0D;&#x0A;&#x0D;&#x0A;nb_joueurs = variables.get(&quot;nb_joueurs&quot;);&#x0D;&#x0A;nb_joueurs.setString(count);</inlineCode>
-                            <parameterObjects></parameterObjects>
+                            <type>BuiltinCommonInstructions::Comment</type>
+                            <color b="0" g="255" r="255" textB="0" textG="0" textR="0" />
+                            <comment>Compte le nombre d&apos;enfant dans une variable</comment>
+                            <comment2>pour savoir le nombre de joueurs</comment2>
                         </event>
                         <event disabled="false" folded="false">
                             <type>BuiltinCommonInstructions::JsCode</type>
-                            <inlineCode>socket.on(&apos;reception_liste_joueurs&apos;, function(message) {&#x0D;&#x0A;&#x09;&#x0D;&#x0A;&#x09;var liste_joueurs = variables.get(&quot;liste_joueurs&quot;);&#x0D;&#x0A;&#x09;liste_joueurs.setString(message);&#x0D;&#x0A;&#x09;console.log(&quot;Liste des joueurs : &quot; + liste_joueurs.getAsString());&#x0D;&#x0A;&#x0D;&#x0A;})</inlineCode>
+                            <inlineCode>var joueurs = variables.get(&quot;joueurs&quot;);&#x0D;&#x0A;var child = joueurs.getAllChildren();&#x0D;&#x0A;&#x0D;&#x0A;var count = 0;&#x0D;&#x0A;for (var k in child) {&#x0D;&#x0A;&#x09;if (child.hasOwnProperty(k)) {&#x0D;&#x0A;&#x09;&#x09;++count;&#x0D;&#x0A;&#x09;}&#x0D;&#x0A;}&#x0D;&#x0A;console.log(&quot;Nombre d&apos;enfants de Joueurs : &quot; + count );&#x0D;&#x0A;nb_joueurs = variables.get(&quot;nb_joueurs&quot;);&#x0D;&#x0A;nb_joueurs.setString(count);</inlineCode>
                             <parameterObjects></parameterObjects>
                         </event>
                         <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::Comment</type>
+                            <color b="0" g="255" r="255" textB="0" textG="0" textR="0" />
+                            <comment>Enregistre la liste de tout les joueurs</comment>
+                            <comment2></comment2>
+                        </event>
+                        <event disabled="false" folded="false">
                             <type>BuiltinCommonInstructions::JsCode</type>
-                            <inlineCode>socket.on(&apos;message_error&apos;, function(message) {&#x0D;&#x0A;&#x09;message_error = variables.get(&quot;message_error&quot;);&#x0D;&#x0A;&#x09;message_error.setString(message);&#x0D;&#x0A;&#x09;console.log(&quot;text pseudo pris&quot;);&#x0D;&#x0A;})</inlineCode>
+                            <inlineCode>socket.on(&apos;reception_liste_joueurs&apos;, function(message) {&#x0D;&#x0A;&#x09;&#x0D;&#x0A;&#x09;var liste_joueurs = variables.get(&quot;liste_joueurs&quot;);&#x0D;&#x0A;&#x09;liste_joueurs.setString(message);&#x0D;&#x0A;&#x09;console.log(&quot;Liste des joueurs : &quot; + liste_joueurs.getAsString());&#x0D;&#x0A;&#x0D;&#x0A;});</inlineCode>
+                            <parameterObjects></parameterObjects>
+                        </event>
+                        <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::Comment</type>
+                            <color b="0" g="255" r="255" textB="0" textG="0" textR="0" />
+                            <comment>Reception des retours texte du serveur</comment>
+                            <comment2></comment2>
+                        </event>
+                        <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::JsCode</type>
+                            <inlineCode>socket.on(&quot;message_serveur&quot;, function(message) {&#x0D;&#x0A;&#x09;message_server = variables.get(&quot;message_server&quot;);&#x0D;&#x0A;&#x09;message_server.setString(message);&#x0D;&#x0A;console.log(message);&#x0D;&#x0A;});</inlineCode>
                             <parameterObjects></parameterObjects>
                         </event>
                     </events>
@@ -670,7 +890,7 @@
                             <parameters>
                                 <parameter>output_server</parameter>
                                 <parameter>=</parameter>
-                                <parameter>GlobalVariableString(message_error)</parameter>
+                                <parameter>GlobalVariableString(message_server)</parameter>
                             </parameters>
                             <subActions />
                         </action>
@@ -678,13 +898,100 @@
                     <events />
                 </event>
                 <event disabled="false" folded="false">
+                    <type>BuiltinCommonInstructions::Comment</type>
+                    <color b="0" g="255" r="255" textB="0" textG="0" textR="0" />
+                    <comment>Confirmation pseudo</comment>
+                    <comment2></comment2>
+                </event>
+                <event disabled="false" folded="false">
                     <type>BuiltinCommonInstructions::Standard</type>
-                    <conditions />
+                    <conditions>
+                        <condition>
+                            <type inverted="false" value="VarGlobalTxt" />
+                            <parameters>
+                                <parameter>message_server</parameter>
+                                <parameter>=</parameter>
+                                <parameter>&quot;Le pseudo est libre&quot;</parameter>
+                            </parameters>
+                            <subConditions />
+                        </condition>
+                        <condition>
+                            <type inverted="false" value="LayerVisible" />
+                            <parameters>
+                                <parameter></parameter>
+                                <parameter>&quot;&quot;</parameter>
+                            </parameters>
+                            <subConditions />
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action>
+                            <type inverted="false" value="ModVarGlobalTxt" />
+                            <parameters>
+                                <parameter>message_server</parameter>
+                                <parameter>=</parameter>
+                                <parameter>&quot;none&quot;</parameter>
+                            </parameters>
+                            <subActions />
+                        </action>
+                        <action>
+                            <type inverted="false" value="HideLayer" />
+                            <parameters>
+                                <parameter></parameter>
+                                <parameter>&quot;&quot;</parameter>
+                            </parameters>
+                            <subActions />
+                        </action>
+                        <action>
+                            <type inverted="false" value="ShowLayer" />
+                            <parameters>
+                                <parameter></parameter>
+                                <parameter>&quot;confirmation&quot;</parameter>
+                            </parameters>
+                            <subActions />
+                        </action>
+                    </actions>
+                    <events>
+                        <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::JsCode</type>
+                            <inlineCode>console.log(&quot;non&quot;);</inlineCode>
+                            <parameterObjects></parameterObjects>
+                        </event>
+                        <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::Standard</type>
+                            <conditions />
+                            <actions />
+                            <events />
+                        </event>
+                    </events>
+                </event>
+                <event disabled="false" folded="false">
+                    <type>BuiltinCommonInstructions::Standard</type>
+                    <conditions>
+                        <condition>
+                            <type inverted="false" value="BuiltinCommonInstructions::Once" />
+                            <parameters />
+                            <subConditions />
+                        </condition>
+                    </conditions>
                     <actions />
-                    <events />
+                    <events>
+                        <event disabled="false" folded="false">
+                            <type>BuiltinCommonInstructions::Standard</type>
+                            <conditions />
+                            <actions />
+                            <events />
+                        </event>
+                    </events>
                 </event>
             </events>
             <layers>
+                <layer name="confirmation" visibility="false">
+                    <cameras>
+                        <camera defaultSize="true" defaultViewport="true" height="0.000000" viewportBottom="1.000000" viewportLeft="0.000000" viewportRight="1.000000" viewportTop="0.000000" width="0.000000" />
+                    </cameras>
+                    <effects />
+                </layer>
                 <layer name="" visibility="true">
                     <cameras>
                         <camera defaultSize="true" defaultViewport="true" height="0.000000" viewportBottom="1.000000" viewportLeft="0.000000" viewportRight="1.000000" viewportTop="0.000000" width="0.000000" />
@@ -741,6 +1048,11 @@
                     <initialVariables />
                 </instance>
                 <instance angle="0.000000" customSize="false" height="0.000000" layer="" locked="false" name="switch_scene" width="0.000000" x="753.000000" y="15.500023" zOrder="5">
+                    <numberProperties />
+                    <stringProperties />
+                    <initialVariables />
+                </instance>
+                <instance angle="0.000000" customSize="false" height="0.000000" layer="" locked="false" name="txt_pseudo" width="0.000000" x="5.999989" y="572.500000" zOrder="6">
                     <numberProperties />
                     <stringProperties />
                     <initialVariables />
@@ -923,6 +1235,14 @@
                         </animation>
                     </animations>
                 </object>
+                <object bold="false" italic="false" name="txt_pseudo" smoothed="true" type="TextObject::Text" underlined="false">
+                    <variables />
+                    <behaviors />
+                    <string>Text</string>
+                    <font></font>
+                    <characterSize>20</characterSize>
+                    <color b="255" g="255" r="255" />
+                </object>
             </objects>
             <events>
                 <event disabled="false" folded="false">
@@ -962,6 +1282,28 @@
                     <color b="0" g="255" r="255" textB="0" textG="0" textR="0" />
                     <comment>Importations</comment>
                     <comment2>Import</comment2>
+                </event>
+                <event disabled="false" folded="false">
+                    <type>BuiltinCommonInstructions::Standard</type>
+                    <conditions>
+                        <condition>
+                            <type inverted="false" value="BuiltinCommonInstructions::Once" />
+                            <parameters />
+                            <subConditions />
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action>
+                            <type inverted="false" value="TextObject::String" />
+                            <parameters>
+                                <parameter>txt_pseudo</parameter>
+                                <parameter>=</parameter>
+                                <parameter>GlobalVariableString(joueur_actuel)</parameter>
+                            </parameters>
+                            <subActions />
+                        </action>
+                    </actions>
+                    <events />
                 </event>
                 <event disabled="false" folded="false">
                     <type>BuiltinCommonInstructions::Comment</type>
@@ -1297,7 +1639,7 @@
         </layout>
     </layouts>
     <externalEvents>
-        <externalEvents associatedLayout="jeux" lastChangeTimeStamp="1470753425" name="Evenements externes">
+        <externalEvents associatedLayout="jeux" lastChangeTimeStamp="1471028304" name="Evenements externes">
             <events>
                 <event disabled="false" folded="false">
                     <type>BuiltinCommonInstructions::Comment</type>
