@@ -7,7 +7,6 @@ var app = express();
 pseudo = [];
 
 app.get('/', function(req, res) {
-	
 	res.sendfile('dindex.html');
 });
 app.use(express.static(__dirname + '/export'));
@@ -21,7 +20,6 @@ io.sockets.on('connection', function (socket) {
 	console.log('Un client est connecté !');
 
 	socket.emit('message', 'Vous êtes bien connecté !');
-	//socket.broadcast.emit('message', 'Un autre client vient de se connecter !');
 	 
 	// Quand le serveur reçoit un signal de type "message" du client    
 	socket.on('message', function (message) {
@@ -47,7 +45,6 @@ io.sockets.on('connection', function (socket) {
 			}else{
 				socket.emit('message_serveur', 'Le pseudo est libre');
 			}
-			
 		}
 	});
 	
